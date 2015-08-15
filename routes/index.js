@@ -1,4 +1,8 @@
 var express = require('express');
+var forms = require('forms');
+var csurf = require('csurf');
+var collectFormErrors = require('express-stormpath/lib/helpers').collectFormErrors;
+var stormpath = require('express-stormpath');
 var extend = require('xtend');
 
 // A render function that will render our page and provide the values of the
@@ -16,8 +20,12 @@ module.exports = function simpleNewList(){
 	var router = express.Router();
 
 	// Capture all parametised requests, the form library will regotiate between them
-	router.all ('/', function (req, res) {
-    renderForm (req, res);
+	router.all ('/', stormpath.loginRequired, function (req, res) {
+    if (user) {
+			renderForm (req, res);
+		} else {
+			res.redirect('/login');
+		}
 	});
 
 	// This is an error handler for this router

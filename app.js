@@ -14,10 +14,9 @@ app.use('/profile', require('./routes/profile')());
 app.use('/fight', require('./routes/fight')());
 
 app.use(stormpath.init(app, {
-  apiKeyId:     process.env.STORMPATH_API_KEY_ID,
-  apiKeySecret: process.env.STORMPATH_API_KEY_SECRET,
-  secretKey:    process.env.STORMPATH_SECRET_KEY,
-  application:  process.env.STORMPATH_URL,
+  apiKeyFile: './storm/apiKey.properties',
+  application: 'https://api.stormpath.com/v1/applications/7GhZzyjSP2k4YtPHPCYhVL',
+  secretKey: 'keaton_candice_eliza_unihack',
 }));
 
 app.listen(app.get('port'), function() {
