@@ -10,6 +10,10 @@
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  min-height: 500px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
 }
 
 #mainbody .navbar {
@@ -18,7 +22,9 @@
   -moz-border-radius: 0;
   border-radius: 0;
 }
-
+#mainbody .navbar-icon {
+  display: inline-block;
+}
 /* -------------------------------
   |<- Individual page styling
 --------------------------------*/

@@ -8,9 +8,9 @@ app.set('view engine', 'jade');
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
+app.use('/', require('./routes/index')());
+app.use('/profile', require('./routes/profile')());
+app.use('/fight', require('./routes/fight')());
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
