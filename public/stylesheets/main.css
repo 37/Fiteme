@@ -69,7 +69,10 @@ img.rightcolumn {
   width: 270px;
 }
 
-
+p.settings {
+  background-color: red;
+  width: 200px;
+}
 
 
 

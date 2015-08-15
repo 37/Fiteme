@@ -10,7 +10,6 @@ block content
 					while n < 20
 						p= n++ + " - win"
 		.container.rightcolumn
-			p.settings
 			p
 				a.btn.btn-primary(href="",id="settings") Settings
 			img(src="http://#{host}", alt='Profile image')
@@ -18,6 +17,7 @@ block content
 				- var n = 0
 				while n < 15
 					p= n++ + " - combobreaker"
+			p.settings "The settings are here"
 	else
 		.container
 			h1  Wanna fite m8?
@@ -30,6 +30,6 @@ block content
 					a.small(href="/register") Get 1337.
 
 block scripts
-$("#settings").click(function () {
-$("#test").animate({width: 'toggle'});
+$( "btn-primary" ).click(function() {
+$( "#settings" ).slideToggle( "slow" );
 });
