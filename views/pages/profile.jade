@@ -9,21 +9,21 @@ block content
 					- var n = 0
 					while n < 20
 						.records
-							img(src="images/placeholder.png") 
+							img(class="record",src="images/edward_01.gif",alt="Record image") 
 							p= "win" + "user" + n++ 
 		.container.rightcolumn
 			i(id="settings", class="material-icons") settings
-			img(class="profile",src="images/clippy.gif", alt='Profile image')
+			img(class="profile",src="images/buffy_01.png", alt="Profile image")
 			.container.achievementlist
 				- var n = 0
 				while n < 15
-					p= n++ + " - combobreaker"
+					n++
+					p= " - combobreaker"
 	
 			p#slider Change your username:
 				input(
 					type='text'
 					name='Username'
-					class=profileInput
 				)
 	else
 		.container

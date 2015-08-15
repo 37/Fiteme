@@ -94,6 +94,11 @@ img.profile {
   height: 40%;
   padding: 20px;
 }
+img.record {
+  width: 40%;
+  height: 40%;
+  padding: 20px;
+}
 #settings {
   float: right;
   margin-top: 3px;
