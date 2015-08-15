@@ -79,6 +79,14 @@ img.profile {
   height: 40%;
   padding: 20px;
 }
+img.recordimage {
+  width: 40%;
+  height: 40%;
+  padding: 20px;
+}
+input.changeuser {
+  width: 50%;
+}
 #settings {
   float: right;
   margin-top: 3px;
@@ -98,7 +106,7 @@ img.profile {
   width: 270px;
 }
 
-#slider {
+p#slider {
   padding-top: 10px;
   width: 250px;
   display: none;
