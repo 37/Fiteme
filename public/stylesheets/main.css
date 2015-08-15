@@ -1,27 +1,31 @@
-.jumbotron {
-  background: #532F8C;
-  color: white;
-  padding-bottom: 80px; }
-  .jumbotron .btn-primary {
-    background: #845ac7;
-    border-color: #845ac7; }
-    .jumbotron .btn-primary:hover {
-      background: #7646c1; }
-  .jumbotron p {
-    color: #d9ccee;
-    max-width: 75%;
-    margin: 1em auto 2em; }
-  .navbar + .jumbotron {
-    margin-top: -20px; }
-  .jumbotron .lang-logo {
-    display: block;
-    background: #B01302;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    border: 2px solid white; }
-    .jumbotron .lang-logo img {
-      max-width: 100%; }
 
+/* ------------------------------------------------------
+  |<- FITEME CSS DECLARATIONS
+---------------------------------------------------*/
+
+/* Main site skeleton */
+#mainbody {
+  max-width: 600px;
+  margin: 0 calc(50% - 300px);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#mainbody .navbar {
+  margin-bottom: 0px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+/* -------------------------------
+  |<- Individual page styling
+--------------------------------*/
+/* Battle page */
+
+
+/* Login & registration page */
+
+
+/* add other pages below */

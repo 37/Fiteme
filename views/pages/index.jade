@@ -1,0 +1,49 @@
+extends ../partials/skeleton
+
+block content
+
+	if user
+		#map-canvas
+		#float-interface
+			p.Welcome-header Welcome #{user.fullName}, the Mekong portal allows you to search an extensive database of articles, legislation and statistics.
+
+		#add-container
+			span(class=['glyphicon', 'close-element', 'glyphicon-remove'], onClick="remList();")
+			h3 Search tool will go here:
+			form.add-loc(method='post', role='form')
+				input(name='_csrf', type='hidden', value=csrfToken)
+				.form-group
+					label Region
+					input.form-control(name='locationName')
+				.form-group
+					.split-half.left-pad
+						label Latitude
+						input.form-control(id="clientLat", name="lat")
+					.split-half.right-pad
+						label Longitude
+						input.form-control(id="clientLon", name="lon")
+				.form-group
+					label Search by time
+					input.form-control(name='recordTime')
+				.form-group
+					label(class="review-label") Content type
+					input(class="review-radio", type="radio", name="reviewCheck", value="1")
+					input(class="review-radio", type="radio", name="reviewCheck", value="2")
+					input(class="review-radio", type="radio", name="reviewCheck", value="3")
+					input(class="review-radio", type="radio", name="reviewCheck", value="4")
+					input(class="review-radio", type="radio", name="reviewCheck", value="5")
+				.form-group
+					button.login.btn.btn-primary(type='submit') Search database.
+	else
+		.jumbotron
+			.container
+				h1  Ready to get started?
+					p Please log in to use our tools.
+					p
+						a.btn.btn-primary(href="/login") Login now
+					p
+						span.small Don't have an account?
+						span &nbsp;
+						a.small(href="/register") Register now
+
+block scripts
