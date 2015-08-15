@@ -7,21 +7,17 @@ body {
   font-family: '8BITWONDERNominal';
   font-weight: normal;
   font-style: normal;
-  background: url("/images/collage-compressed.jpg") no-repeat fixed center;
-  background-size: 100%;
+  background: url("collage_placeholder.png") no-repeat fixed center;
 }
 
 #mainbody {
   position: relative;
-  float: left;
   max-width: 600px;
-  width: 100%;
   margin: 0 calc(50% - 300px);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   min-height: 500px;
-  background-color: white;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
   -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
   box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
@@ -37,13 +33,6 @@ body {
   float: right;
 }
 
-
-#maincontent {
-  float: left;
-  padding-bottom: 50px;
-  width: 100%;
-}
-
 img.logomain {
   margin-top: 20px;
   padding-bottom: 2%;
@@ -57,71 +46,23 @@ img.logomain {
 /* Battle page */
 
 
-form#battleSubmit { background: #000; padding: 3px; position: absolute; bottom: 0; width: 600px; }
+  form#battleSubmit { background: #000; padding: 3px; position: absolute; bottom: 0; width: 600px; }
 
-#battleSubmit.active {
-  border-color: gold;
-}
+  form input { border: 0; padding: 10px; width: calc(100% - 79px); margin-right: .5%; }
 
-form input { border: 0; padding: 10px; width: calc(100% - 79px); margin-right: .5%; }
+  form button {
+    width: 75px;
+    background: rgb(231, 34, 34);
+    border: none;
+    padding: 10px;
+    color: white;
+  }
 
-form button {
-  width: 75px;
-  background: rgb(231, 34, 34);
-  border: none;
-  padding: 10px;
-  color: white;
-}
+  #messages { list-style-type: none; margin: 0; padding: 0; }
 
-#messages {
-  float: left;
-  width: 100%;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+  #messages li { padding: 5px 10px; }
 
-#messages li { background-color: white; padding: 5px 10px; }
-
-#battleContent{
-  float: left;
-  background-color: #eee;
-  width: 100%;
-  min-height:
-}
-
-#battleCount {
-  width: 80px;
-  float: left;
-}
-
-
-#battleCount li {
-  height: 40px;
-  width: 40px;
-  background-color: white;
-  -webkit-border-radius: 20px;
-  -webkit-border-top-left-radius: 3px;
-  -moz-border-radius: 20px;
-  -moz-border-radius-topleft: 3px;
-  border-radius: 20px;
-  border-top-left-radius: 3px;
-  line-height: 30px;
-  padding-left:5px;
-  margin-top: 5px;
-}
-
-#battleCount li.complete {
-  border: 3px solid grey;
-}
-
-#battleCount li.active {
-  border: 3px solid gold;
-}
-
-#battleInputs{
-  width: calc(100% - 80px);
-}
+  #messages li:nth-child(odd) { background: #eee; }
 
 /* Login & registration page */
 
@@ -181,29 +122,39 @@ ol.recordlist {
   list-style-type: none;
 }
 
-
-
 /* add other pages below */
 
 /* Judge page */
 
 div.userOne {
-  max-width: 600px;
+  width: 600px;
   text-align: left;
-  float: left;
+  padding-top: 7%;
   padding-left: 5%;
-  display: inline-block;
+  padding-bottom: 7%;
+  padding-right: 20%;
+  background-color: #EEE;
+
 }
 div.userTwo {
-  max-width: 600px;
+  width: 600px;
   text-align: right;
-  float: right;
+  padding-top: 7%;
+  padding-bottom: 7%;
   padding-right: 5%;
-  display: inline-block;
+  padding-left: 20%;
 }
 .arguments{
-  display: table-row;
+  overflow-y: scroll;
   height: 100%;
-  max-width: 600px;
   margin-top: 20px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
 }
+
+h4 div#maincontent {
+  text-align: center;
+  padding-top: 5%;
+}
+
