@@ -4,18 +4,52 @@ block prescript
 	script(type='text/javascript').
 		var playerPos;
 		var gameState;
+		var turnCounter = 1;
+
+		function propogateTurn(count){
+			var counter = document.getElementById('battleCount');
+			var icons = $(counter).children('li');
+			for (i=0; i < (count + 1); i++) {
+
+				if (i == count) {
+					$(icons[i]).removeClass();
+					$(icons[i]).addClass('active');
+				} else {
+					if ($(icons[i]).hasClass('active')){
+						$('#battleInputs textarea').slideUp( "300");
+						$($('#battleInputs').children('textarea')[i]).delay(400).slideDown( "300");
+					}
+					$(icons[i]).removeClass();
+					$(icons[i]).addClass('complete');
+				}
+			}
+			turnCounter++;
+		}
+
+		$(document).ready(function() {
+			$('#battleCount').on('click', '.complete', function() {
+				if (!$(this).hasClass('open')) {
+					var icon = $(this);
+					var inputContainer = $('#battleInputs');
+					var inputs = $(inputContainer).children('textarea');
+					var index = icon.attr('data-count');
+					$('#battleInputs textarea').slideUp( "300");
+					$(inputs[index]).delay(400).slideDown( "300");
+				}
+			});
+		});
+
 block content
 
 	if user
 		H1 The argument title will go here, get ready!
 		div(id="battleContent")
 			ol(id='battleCount')
-				li P1
-				li P2
-				li P1
-				li P2
+				li(data-count='1', class="active") P1
+				li(data-count='2') P2
+				li(data-count='3') P1
+				li(data-count='4') P2
 			form(id="battleInputs")
-			div.answers
 			ul(id='messages')
 		form(id='battleSubmit')
 			input(id="m", autocomplete="off")
@@ -41,15 +75,8 @@ block scripts
 			return false;
 		});
 		socket.on('message', function(from, position, msg){
-			switch(position){
-				case 1:
-					$('#battleContent .column-left').append($('<input name="p1" readonly>').text(msg));
-
-				case 2:
-					$('#battleContent .column-right').append($('<input name="p2" readonly>').text(msg));
-				default:
-			}
-			$('#battleContent').append($('<li class="player' + position + '">').text(from + ': ' + msg));
+			$('#battleInputs').append($('<textarea style= "display: none;" name="p' + position + '" readonly>').text(msg));
+			propogateTurn(turnCounter);
 		});
 		socket.on('status', function(status, position, msg){
 			if(status) {
