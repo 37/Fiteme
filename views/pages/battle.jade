@@ -1,18 +1,11 @@
 extends ../partials/skeleton
 
 block prescript
-	script(type='text/javascript', src='/socket.io/socket.io.js')
-	script(type='text/javascript').
-		var socket = io.connect('http://localhost');
-		socket.on('news', function (data) {
-			console.log(data);
-			socket.emit('my other event', { my: 'data' });
-		});
 
 block content
 
 	if user
-		p This is the battle page, gosh - can't wait!
+		p This is the battle page !{givenName}, gosh - can't wait!
 		ul(id='messages')
 		form(id='battleSubmit')
 			input(id="m", autocomplete="off")
@@ -29,3 +22,17 @@ block content
 					a.small(href="/register") Get 1337.
 
 block scripts
+	script(type='text/javascript', src='/socket.io/socket.io.js')
+	script(type='text/javascript').
+		var socket = io();
+		$('form').submit(function(){
+			socket.emit('message', '!{givenName}', $('#m').val());
+			$('#m').val('');
+			return false;
+		});
+		socket.on('message', function(from, msg){
+			$('#messages').append($('<li>').text(from + ': ' + msg));
+		});
+		socket.on('status', function(msg){
+			$('#messages').append($('<li>').text(msg));
+		});
