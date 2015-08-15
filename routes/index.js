@@ -21,11 +21,7 @@ module.exports = function simpleNewList(){
 
 	// Capture all parametised requests, the form library will regotiate between them
 	router.all ('/', stormpath.loginRequired, function (req, res) {
-    if (user) {
-			renderForm (req, res);
-		} else {
-			res.redirect('/login');
-		}
+		renderForm (req, res);
 	});
 
 	// This is an error handler for this router
