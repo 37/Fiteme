@@ -1,7 +1,9 @@
 extends ../partials/skeleton
 
 block prescript
-
+	script(type='text/javascript').
+		var playerPos;
+		var gameState;
 block content
 
 	if user
@@ -33,6 +35,12 @@ block scripts
 		socket.on('message', function(from, msg){
 			$('#messages').append($('<li>').text(from + ': ' + msg));
 		});
-		socket.on('status', function(msg){
-			$('#messages').append($('<li>').text(msg));
+		socket.on('status', function(status, position, msg){
+			if(position) {
+				gameState = status;
+				playerPos = position;
+				console.log('gamestate: ' + gameState + '.');
+				console.log('player position: ' + playerPos + '.');
+			}
+			$('#messages').append($('<li class="left">').text(msg));
 		});
