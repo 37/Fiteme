@@ -3,16 +3,21 @@ extends ../partials/skeleton
 block content
 
 	if user
+		h3.judge Judge me
+		h4.topic Topic Name: {{topicname}}
 		.arguments
-
 			.userOne.first
-				p User one first argument 
+				img(class="icon left",src="images/icon-profile_02.png")
+				p User one first argument there are many things g
+			.userTwo.first
+				img(class="icon right",src="images/icon-profile_01.png")
 				p User two first argument
-
 			.userOne.second
-				p User one second argument
+				img(class="icon left",src="images/icon-profile_02.png")
+				p User one second argument hdjfk fsahjkf fhsajkfh fhsajkh fhsajkfh  hjfksahfjk  fsahjkf hfs ahjkf h
 			.userTwo.second
-				p User two second argument
+				img(class="icon right",src="images/icon-profile_01.png")
+				p User two second argument dhajsjk dhsajdhsahd jks djkahsjdkahs
 			
 	else
 		.container
