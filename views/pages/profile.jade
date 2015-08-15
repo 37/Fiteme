@@ -3,7 +3,13 @@ extends ../partials/skeleton
 block content
 
 	if !user
-		p This is the profile page (will implement this shortly).
+		.container.leftcolumn
+			h3 Record
+				.container.recordlist 
+		.container.rightcolumn
+			p 
+				a.btn.btn-primary(href="/settings",id="settings") Settings
+			img(src="http://#{host}", alt='Profile image')
 	else
 		.container
 			h1  Wanna fite m8?
