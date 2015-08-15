@@ -9,7 +9,7 @@ block content
 					- var n = 0
 					while n < 20
 						.records
-							img(src="") 
+							img(src="images/placeholder.png") 
 							p= "win" + "user" + n++ 
 		.container.rightcolumn
 			i(id="settings", class="material-icons") settings
@@ -18,7 +18,13 @@ block content
 				- var n = 0
 				while n < 15
 					p= n++ + " - combobreaker"
-			p#slider "The settings are here"
+	
+			p#slider Change your username:
+				input(
+					type='text'
+					name='Username'
+					class=profileInput
+				)
 	else
 		.container
 			h1  Wanna fite m8?
