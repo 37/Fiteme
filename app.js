@@ -38,6 +38,7 @@ server.listen(app.get('port'), function() {
 });
 
 function makeGameId(callback){
+  currentRoom = '';
   var id = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   for (var i=0; i < 5; i++) {
@@ -63,7 +64,7 @@ io.on('connection', function (socket) {
           gameCount++;
           gameClients[socket.id] = room;
           console.log('room created: ' + room);
-          io.to(room).emit('status', 'Player has entered the game.');
+          io.to(room).emit('status', 'search', '1', 'Player 1 has entered the game.');
         } else {
           console.log(err, 'e');
           console.log('Cannot create new room, client:' + socket);
@@ -79,8 +80,8 @@ io.on('connection', function (socket) {
         if (!err){
           gameCount++;
           gameClients[socket.id] = currentRoom;
-          console.log('room created: ' + currentRoom);
-          io.to(currentRoom).emit('status', 'Player has entered the game.');
+          console.log('room joined: ' + currentRoom);
+          io.to(currentRoom).emit('status', 'start', '2', 'Player 2 has entered the game.');
         } else {
           console.log(err, 'e');
           console.log('Cannot join room, client: ' +  socket);
@@ -89,7 +90,7 @@ io.on('connection', function (socket) {
     } else {
       console.log('Assigned room doesnt exist.');
     }
-    currentRoom = '';
+
   }
 
   //listening for updates from chat rooms;
