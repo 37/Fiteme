@@ -9,6 +9,7 @@ body {
   font-family: '8BITWONDERNominal';
   font-weight: normal;
   font-style: normal;
+  background: url("collage_placeholder.png") no-repeat fixed center;
 }
 
 #mainbody {
@@ -22,6 +23,7 @@ body {
   -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
   -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
   box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.5);
+  background-color: #00ff00;
 }
 
 #mainbody .navbar {
