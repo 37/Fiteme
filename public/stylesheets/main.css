@@ -30,9 +30,15 @@ body {
   border-radius: 0;
 }
 #mainbody .navbar-icon {
-  display: inline-block;
+  float: right;
 }
 
+img.logomain {
+  margin-top: 20px;
+  padding-bottom: 2%;
+  width: 30%;
+  height: 30%;
+}
 
 /* -------------------------------
   |<- Individual page styling
@@ -84,7 +90,8 @@ img.recordimage {
   padding: 20px;
 }
 input.changeuser {
-  width: 50%;
+  width: 60%;
+  margin-top: 3%;
 }
 #settings {
   float: right;
@@ -94,14 +101,14 @@ input.changeuser {
 .container.recordlist {
   overflow-y: scroll;
   margin-top: 20px;
-  height: 350px;
+  height: 310px;
   width: 270px;
 }
 
 .container.achievementlist {
   overflow-y: scroll;
   margin-top: 20px;
-  height: 230px;
+  height: 190px;
   width: 270px;
 }
 
