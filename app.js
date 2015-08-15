@@ -30,7 +30,7 @@ app.use('/', require('./routes/index')());
 app.use('/profile', require('./routes/profile')());
 app.use('/fight', require('./routes/fight')());
 app.use('/battle', require('./routes/battle')());
-
+app.use('/judge', require('./routes/judge')());
 
 app.set('port', (process.env.PORT || 8080));
 server.listen(app.get('port'), function() {

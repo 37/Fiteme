@@ -1,0 +1,47 @@
+extends ../partials/skeleton
+
+block content
+
+	if user
+		.arguments
+
+			.userOne.first
+				p User one first argument 
+				p User two first argument
+
+			.userOne.second
+				p User one second argument
+			.userTwo.second
+				p User two second argument
+			
+	else
+		.container
+			h1  Wanna fite m8?
+				p Log in first.
+				p
+					a.btn.btn-primary(href="/login") Login
+				p
+					span.small I don't have an account?
+					span &nbsp;
+					a.small(href="/register") Get 1337.
+
+block scripts
+	script(type='text/javascript').
+		$(document).ready(function (){
+			$("#settings").click(function () {
+				var button = $(this);
+				if ($(this).hasClass('active')){
+					console.log("Button active, resetting!");
+					$("#slider").slideUp("500");
+					$(".achievementlist").delay(500).slideDown("500");
+					$(this).removeClass('active');
+					return false;
+				} else {
+					console.log("Button inactive, opening!");
+					$(".achievementlist").slideUp("500");
+					$("#slider").delay(500).slideDown("500");
+					$(this).addClass('active');
+					return false;
+				}
+			});
+		});

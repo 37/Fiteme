@@ -34,13 +34,21 @@ body {
   border-radius: 0;
 }
 #mainbody .navbar-icon {
-  display: inline-block;
+  float: right;
 }
+
 
 #maincontent {
   float: left;
   padding-bottom: 50px;
   width: 100%;
+}
+
+img.logomain {
+  margin-top: 20px;
+  padding-bottom: 2%;
+  width: 30%;
+  height: 30%;
 }
 
 /* -------------------------------
@@ -135,6 +143,15 @@ img.profile {
   height: 40%;
   padding: 20px;
 }
+img.recordimage {
+  width: 40%;
+  height: 40%;
+  padding: 20px;
+}
+input.changeuser {
+  width: 60%;
+  margin-top: 3%;
+}
 #settings {
   float: right;
   margin-top: 3px;
@@ -143,18 +160,18 @@ img.profile {
 .container.recordlist {
   overflow-y: scroll;
   margin-top: 20px;
-  height: 350px;
+  height: 310px;
   width: 270px;
 }
 
 .container.achievementlist {
   overflow-y: scroll;
   margin-top: 20px;
-  height: 230px;
+  height: 190px;
   width: 270px;
 }
 
-#slider {
+p#slider {
   padding-top: 10px;
   width: 250px;
   display: none;
@@ -166,6 +183,27 @@ ol.recordlist {
 
 
 
-
-
 /* add other pages below */
+
+/* Judge page */
+
+div.userOne {
+  max-width: 600px;
+  text-align: left;
+  float: left;
+  padding-left: 5%;
+  display: inline-block;
+}
+div.userTwo {
+  max-width: 600px;
+  text-align: right;
+  float: right;
+  padding-right: 5%;
+  display: inline-block;
+}
+.arguments{
+  display: table-row;
+  height: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}

@@ -4,21 +4,25 @@ block content
 
     if user
         .container.leftcolumn
-            h3 Record
+            h4 Record
                 .container.recordlist
                     - var n = 0
                     while n < 20
                         .records
-                            img(src="") 
+                            img(class="recordimage",src="images/avatar_zoolander_01.png",alt="Opponent Image") 
                             p= n++ + "user" 
         .container.rightcolumn
             i(id="settings", class="material-icons") settings
-            img(class="profile",src="images/clippy.gif", alt='Profile image')
+            img(class="profile",src="images/buffy_01.png", alt="Profile image")
+            h4 Username
             .container.achievementlist
                 - var n = 0
                 while n < 15
                     p= n++ + " - combobreaker"
-            p#slider "The settings are here"
+                        img(class="recordimage",src="images/placeholder.png",alt="Opponent Image")
+            p#slider Change your username:
+                input(class="changeuser",type="text", name="username")
+                input(class="changeuser", type='submit', value='Change')
     else
         .container
             h1  Wanna fite m8?
