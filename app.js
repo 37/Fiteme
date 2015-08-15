@@ -3,6 +3,7 @@ var stormpath = require('express-stormpath');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var connectionCount;
 
 var stormpathMiddleware = stormpath.init(app, {
   apiKeyFile: './storm/apiKey.properties',
@@ -30,8 +31,13 @@ server.listen(app.get('port'), function() {
 });
 
 io.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+  io.emit('status', 'Player has entered the game.');
+
+  socket.on('message', function (from, msg) {
+    io.emit('message', from, msg);
+  });
+
+  socket.on('disconnect', function () {
+    io.emit('status', 'GG, player 1 bitched out & rage quit.');
   });
 });
