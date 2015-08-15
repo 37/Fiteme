@@ -4,6 +4,7 @@ var forms = require('forms');
 var csurf = require('csurf');
 var collectFormErrors = require('express-stormpath/lib/helpers').collectFormErrors;
 var extend = require('xtend');
+var url = require('url');
 
 // A render function that will render our page and provide the values of the
 // fields, as well as any situation-specific Locals.
@@ -18,13 +19,15 @@ function renderForm (req, res, locals){
 }
 
 //Export a function which will create the router and return it:
-module.exports = function simpleNewList(){
+module.exports = function loader(){
 	var router = express.Router();
+
+	router.use(csurf({ sessionKey: 'stormpathSession' }));
+
 
 	// Capture all parametised requests, the form library will regotiate between them
 	router.all ('/', stormpath.loginRequired, function (req, res) {
 		renderForm (req, res);
-		console.log('index loading, passed login tests.');
 	});
 
 	// This is an error handler for this router

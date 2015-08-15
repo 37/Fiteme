@@ -1,8 +1,8 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "name": "Fiteme",
+  "description": "An application build for Unihack 2015",
+  "repository": "https://github.com/LovelyHorse/fiteme.git",
+  "logo": "https://github.com/LovelyHorse/fiteme.png",
   "keywords": ["node", "express", "static"],
   "image": "heroku/node"
 }
