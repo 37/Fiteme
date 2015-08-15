@@ -13,6 +13,10 @@ block content
 			p 
 				a.btn.btn-primary(href="/settings",id="settings") Settings
 			img(src="http://#{host}", alt='Profile image')
+			.container.achievementlist
+				- var n = 0
+				while n < 15
+					p= n++ + " - combobreaker"
 	else
 		.container
 			h1  Wanna fite m8?
