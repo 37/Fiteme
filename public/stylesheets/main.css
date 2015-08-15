@@ -124,6 +124,27 @@ ol.recordlist {
 
 
 
-
-
 /* add other pages below */
+
+/* Judge page */
+
+div.userOne {
+  max-width: 600px;
+  text-align: left;
+  float: left;
+  padding-left: 5%;
+  display: inline-block;
+}
+div.userTwo {
+  max-width: 600px;
+  text-align: right;
+  float: right;
+  padding-right: 5%;
+  display: inline-block;
+}
+.arguments{
+  display: table-row;
+  height: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
