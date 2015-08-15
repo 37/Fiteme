@@ -1,6 +1,8 @@
 var express = require('express');
 var stormpath = require('express-stormpath');
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 var stormpathMiddleware = stormpath.init(app, {
   apiKeyFile: './storm/apiKey.properties',
@@ -21,7 +23,15 @@ app.use('/profile', require('./routes/profile')());
 app.use('/fight', require('./routes/fight')());
 app.use('/battle', require('./routes/battle')());
 
-app.set('port', (process.env.PORT || 3000));
-app.listen(app.get('port'), function() {
+
+app.set('port', (process.env.PORT || 80));
+server.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
+});
+
+io.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
 });
