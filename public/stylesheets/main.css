@@ -83,9 +83,12 @@ img.rightcolumn {
   width: 270px;
 }
 
-p.settings {
+#slider {
   background-color: red;
   width: 200px;
+  display: none;
+
+
 }
 
 
