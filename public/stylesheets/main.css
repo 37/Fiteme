@@ -88,9 +88,9 @@ form button {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  background-color: white;
+  padding: 5px 10px;
 }
-
-#messages li { background-color: white; padding: 5px 10px; }
 
 #battleContent{
   float: left;
