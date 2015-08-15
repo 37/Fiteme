@@ -2,7 +2,7 @@ extends ../partials/skeleton
 
 block content
 
-	if !user
+	if user
 		.container.leftcolumn
 			h3 Record
 				.container.recordlist
@@ -10,8 +10,8 @@ block content
 					while n < 20
 						p= n++ + " - win"
 		.container.rightcolumn
-			p.settings 
-			p 
+			p.settings
+			p
 				a.btn.btn-primary(href="",id="settings") Settings
 			img(src="http://#{host}", alt='Profile image')
 			.container.achievementlist
