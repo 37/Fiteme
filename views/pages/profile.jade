@@ -8,13 +8,12 @@ block content
 				.container.recordlist
 					- var n = 0
 					while n < 20
-						p= n++ + " - win"
-
+						.records
+							img(src="") 
+							p= "win" + "user" + n++ 
 		.container.rightcolumn
-
-			p
 			i(id="settings", class="material-icons") settings
-			img(src="http://#{host}", alt='Profile image')
+			img(class="profile",src="images/clippy.gif", alt='Profile image')
 			.container.achievementlist
 				- var n = 0
 				while n < 15

@@ -25,7 +25,7 @@ app.use('/fight', require('./routes/fight')());
 app.use('/battle', require('./routes/battle')());
 
 
-app.set('port', (process.env.PORT || 80));
+app.set('port', (process.env.PORT || 8080));
 server.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
