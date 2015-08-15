@@ -1,8 +1,8 @@
 var express = require('express');
+var stormpath = require('express-stormpath');
 var forms = require('forms');
 var csurf = require('csurf');
 var collectFormErrors = require('express-stormpath/lib/helpers').collectFormErrors;
-var stormpath = require('express-stormpath');
 var extend = require('xtend');
 
 // A render function that will render our page and provide the values of the
@@ -11,7 +11,9 @@ var extend = require('xtend');
 function renderForm (req, res, locals){
 
 	res.render('pages/index', extend({
-		title: 'Fite Me!'
+		title: 'Fite Me!',
+		csrfToken: req.csrfToken(),
+		givenName: req.user.givenName
 	}, locals || {} ));
 }
 
@@ -22,6 +24,7 @@ module.exports = function simpleNewList(){
 	// Capture all parametised requests, the form library will regotiate between them
 	router.all ('/', stormpath.loginRequired, function (req, res) {
 		renderForm (req, res);
+		console.log('index loading, passed login tests.');
 	});
 
 	// This is an error handler for this router
