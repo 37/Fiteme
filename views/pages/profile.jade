@@ -5,7 +5,10 @@ block content
 	if !user
 		.container.leftcolumn
 			h3 Record
-				.container.recordlist 
+				.container.recordlist
+					- var n = 0
+					while n < 20
+						p= n++ + " - win"
 		.container.rightcolumn
 			p 
 				a.btn.btn-primary(href="/settings",id="settings") Settings
