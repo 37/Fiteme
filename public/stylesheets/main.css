@@ -85,7 +85,7 @@ img.rightcolumn {
 #settings {
   float: right;
   margin-top: 3px;
-
+  cursor: pointer;
 }
 .container.recordlist {
   overflow-y: scroll;

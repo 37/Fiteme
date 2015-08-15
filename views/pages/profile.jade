@@ -9,11 +9,15 @@ block content
 					- var n = 0
 					while n < 20
 						p= n++ + " - win"
-		
+
 		.container.rightcolumn
 
 			p
-				paper-button(raised).btn-primary(href="",id="settings") Settings
+<<<<<<< HEAD
+
+=======
+			i(id="settings", class="material-icons") settings
+>>>>>>> 3a7b3da25009cb2325314242023361a051bf7c9b
 			img(src="http://#{host}", alt='Profile image')
 			.container.achievementlist
 				- var n = 0
@@ -32,12 +36,22 @@ block content
 					a.small(href="/register") Get 1337.
 
 block scripts
-script(type='text/javascript').
-	$(document).ready(function (){
-		$("#settings").click(function () {
-			console.log("hello");
-			$("#slider").slideDown("slow");
-			return false;
+	script(type='text/javascript').
+		$(document).ready(function (){
+			$("#settings").click(function () {
+				var button = $(this);
+				if ($(this).hasClass('active')){
+					console.log("Button active, resetting!");
+					$("#slider").slideUp("500");
+					$(".achievementlist").delay(500).slideDown("500");
+					$(this).removeClass('active');
+					return false;
+				} else {
+					console.log("Button inactive, opening!");
+					$(".achievementlist").slideUp("500");
+					$("#slider").delay(500).slideDown("500");
+					$(this).addClass('active');
+					return false;
+				}
+			});
 		});
-	});
-
