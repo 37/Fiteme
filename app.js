@@ -19,6 +19,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/', require('./routes/index')());
 app.use('/profile', require('./routes/profile')());
 app.use('/fight', require('./routes/fight')());
+app.use('/battle', require('./routes/battle')());
 
 app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), function() {
