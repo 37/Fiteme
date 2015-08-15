@@ -12,6 +12,7 @@ body {
 }
 
 #mainbody {
+  position: relative;
   max-width: 600px;
   margin: 0 calc(50% - 300px);
   -webkit-border-radius: 3px;
@@ -32,18 +33,33 @@ body {
 #mainbody .navbar-icon {
   display: inline-block;
 }
+
+#maincontent {
+
+}
 /* -------------------------------
   |<- Individual page styling
 --------------------------------*/
 /* Battle page */
 
 
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
+  form#battleSubmit { background: #000; padding: 3px; position: absolute; bottom: 0; width: 600px; }
+
+  form input { border: 0; padding: 10px; width: calc(100% - 79px); margin-right: .5%; }
+
+  form button {
+    width: 75px;
+    background: rgb(231, 34, 34);
+    border: none;
+    padding: 10px;
+    color: white;
+  }
+
+  #messages { list-style-type: none; margin: 0; padding: 0; }
+
+  #messages li { padding: 5px 10px; }
+
+  #messages li:nth-child(odd) { background: #eee; }
 
 /* Login & registration page */
 

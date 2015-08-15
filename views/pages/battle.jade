@@ -3,7 +3,11 @@ extends ../partials/skeleton
 block content
 
 	if user
-		p() This is the battle page, gosh - can't wait!
+		p This is the battle page, gosh - can't wait!
+		ul(id='messages')
+		form(id='battleSubmit')
+			input(id="m", autocomplete="off")
+			button Send
 	else
 		.container
 			h1  Wanna fite m8?
