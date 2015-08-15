@@ -37,6 +37,11 @@ body {
   float: right;
 }
 
+.navbar {
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    0px 0px 3px 0px rgba(50, 50, 50, 0.25);
+  box-shadow:         0px 0px 3px 0px rgba(50, 50, 50, 0.25);
+}
 
 #maincontent {
   float: left;
