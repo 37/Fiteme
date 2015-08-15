@@ -132,9 +132,11 @@ div.userOne {
   padding-top: 7%;
   padding-bottom: 7%;
   padding-left: 5%;
-  padding-right: 20%;
   background-color: #EEE;
   overflow: hidden;
+}
+div.userOne p {
+  margin-right: 25%;
 }
 div.userTwo {
   width: 600px;
@@ -142,12 +144,11 @@ div.userTwo {
   padding-top: 7%;
   padding-bottom: 7%;
   padding-right: 5%;
-  padding-left: 20%;
   overflow: hidden;
 }
 .arguments{
   overflow-y: scroll;
-  height: 400px;
+  height: 500px;
   margin-top: 20px;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.5);
   -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.5);
@@ -174,4 +175,17 @@ img.icon.right {
   float: right;
 }
 
+img.select {
+  width: 20%;
+  height: 20%;
+}
+img.select.right {
+  float: right;
+  margin-right: 3%;
+
+}
+img.select.left {
+  float: left;
+  margin-left: 3%;
+}
 
