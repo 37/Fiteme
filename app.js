@@ -94,10 +94,10 @@ io.on('connection', function (socket) {
   }
 
   //listening for updates from chat rooms;
-  socket.on('message', function(from, data) {
+  socket.on('message', function(from, position, data) {
     var room = gameClients[socket.id];
     delete data.socketId;
-    io.to(room).emit('message', from, data);
+    io.to(room).emit('message', from, position, data);
   })
 
   //default room settings

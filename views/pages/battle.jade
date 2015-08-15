@@ -7,8 +7,16 @@ block prescript
 block content
 
 	if user
-		p This is the battle page !{givenName}, gosh - can't wait!
-		ul(id='messages')
+		H1 The argument title will go here, get ready!
+		div(id="battleContent")
+			ol(id='battleCount')
+				li P1
+				li P2
+				li P1
+				li P2
+			form(id="battleInputs")
+			div.answers
+			ul(id='messages')
 		form(id='battleSubmit')
 			input(id="m", autocomplete="off")
 			button Send
@@ -28,19 +36,32 @@ block scripts
 	script(type='text/javascript').
 		var socket = io();
 		$('form').submit(function(){
-			socket.emit('message', '!{givenName}', $('#m').val());
+			socket.emit('message', '!{givenName}', playerPos, $('#m').val());
 			$('#m').val('');
 			return false;
 		});
-		socket.on('message', function(from, msg){
-			$('#messages').append($('<li>').text(from + ': ' + msg));
+		socket.on('message', function(from, position, msg){
+			switch(position){
+				case 1:
+					$('#battleContent .column-left').append($('<input name="p1" readonly>').text(msg));
+
+				case 2:
+					$('#battleContent .column-right').append($('<input name="p2" readonly>').text(msg));
+				default:
+			}
+			$('#battleContent').append($('<li class="player' + position + '">').text(from + ': ' + msg));
 		});
 		socket.on('status', function(status, position, msg){
-			if(position) {
+			if(status) {
 				gameState = status;
-				playerPos = position;
 				console.log('gamestate: ' + gameState + '.');
+				if (gameState = 'start'){
+
+				}
+			}
+			if(position && !playerPos) {
+				playerPos = position;
 				console.log('player position: ' + playerPos + '.');
 			}
-			$('#messages').append($('<li class="left">').text(msg));
+			$('#messages').append($('<li>').text(msg));
 		});
