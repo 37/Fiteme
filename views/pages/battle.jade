@@ -15,7 +15,7 @@ block content
 				li P1
 				li P2
 			form(id="battleInputs")
-			div.answers
+				textarea(readonly) Iron Man, Thor, Captain America and the rest of Earths Mightiest Heroes unite to stand against the threats none can face alone. The Avengers return. The instructors at Avengers Academy hope to steer these super-powered.
 			ul(id='messages')
 		form(id='battleSubmit')
 			input(id="m", autocomplete="off")
@@ -43,10 +43,10 @@ block scripts
 		socket.on('message', function(from, position, msg){
 			switch(position){
 				case 1:
-					$('#battleContent .column-left').append($('<input name="p1" readonly>').text(msg));
+					$('#battleInputs').append($('<textarea name="p1" readonly>').text(msg));
 
 				case 2:
-					$('#battleContent .column-right').append($('<input name="p2" readonly>').text(msg));
+					$('#battleInputs').append($('<textarea name="p2" readonly>').text(msg));
 				default:
 			}
 			$('#battleContent').append($('<li class="player' + position + '">').text(from + ': ' + msg));
