@@ -75,18 +75,25 @@ block prescript
 block content
 
 	if user
-		H1 The argument title will go here, get ready!
-		div(id="battleContent")
-			ol(id='battleCount')
-				li(data-count='1', class="active") P1
-				li(data-count='2') P2
-				li(data-count='3') P1
-				li(data-count='4') P2
-			form(id="battleInputs")
-			ul(id='messages')
-		form(id='battleSubmit')
-			input(id="m", autocomplete="off")
-			button Send
+		div(id="searchingScreen")
+			h1 Searching for an (un)worthy opponent..
+			img
+		div(id="battleScreen")
+			H1 The argument title will go here, get ready!
+			div(id="battleContent")
+				ol(id='battleCount')
+					li(data-count='1', class="active") P1
+					li(data-count='2') P2
+					li(data-count='3') P1
+					li(data-count='4') P2
+				form(id="battleInputs")
+				ul(id='messages')
+			form(id='battleSubmit')
+				input(id="m", autocomplete="off")
+				button Send
+		div(id="postScreen")
+			h1 Searching for an (un)worthy opponent..
+			img
 	else
 		.container
 			h1  Wanna fite m8?

@@ -65,6 +65,29 @@ img.logomain {
 --------------------------------*/
 /* Battle page */
 
+#searchingScreen {
+  height: 448px;
+  width: 100%:
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30
+  background-color: white;
+}
+
+#battleScreen {
+  position: relative;
+  z-index: 20;
+}
+#postScreen {
+  height: 448px;
+  width: 100%:
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10
+  background-color: white;
+}
 
 form#battleSubmit { background: #000; padding: 3px; position: absolute; bottom: 0; width: 600px; }
 
