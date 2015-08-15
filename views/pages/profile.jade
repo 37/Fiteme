@@ -2,51 +2,51 @@ extends ../partials/skeleton
 
 block content
 
-	if user
-		.container.leftcolumn
-			h3 Record
-				.container.recordlist
-					- var n = 0
-					while n < 20
-						.records
-							img(src="") 
-							p= "win" + "user" + n++ 
-		.container.rightcolumn
-			i(id="settings", class="material-icons") settings
-			img(class="profile",src="images/clippy.gif", alt='Profile image')
-			.container.achievementlist
-				- var n = 0
-				while n < 15
-					p= n++ + " - combobreaker"
-			p#slider "The settings are here"
-	else
-		.container
-			h1  Wanna fite m8?
-				p Log in first.
-				p
-					a.btn.btn-primary(href="/login") Login
-				p
-					span.small I don't have an account?
-					span &nbsp;
-					a.small(href="/register") Get 1337.
+    if user
+        .container.leftcolumn
+            h3 Record
+                .container.recordlist
+                    - var n = 0
+                    while n < 20
+                        .records
+                            img(src="") 
+                            p= n++ + "user" 
+        .container.rightcolumn
+            i(id="settings", class="material-icons") settings
+            img(class="profile",src="images/clippy.gif", alt='Profile image')
+            .container.achievementlist
+                - var n = 0
+                while n < 15
+                    p= n++ + " - combobreaker"
+            p#slider "The settings are here"
+    else
+        .container
+            h1  Wanna fite m8?
+                p Log in first.
+                p
+                    a.btn.btn-primary(href="/login") Login
+                p
+                    span.small I don't have an account?
+                    span &nbsp;
+                    a.small(href="/register") Get 1337.
 
 block scripts
-	script(type='text/javascript').
-		$(document).ready(function (){
-			$("#settings").click(function () {
-				var button = $(this);
-				if ($(this).hasClass('active')){
-					console.log("Button active, resetting!");
-					$("#slider").slideUp("500");
-					$(".achievementlist").delay(500).slideDown("500");
-					$(this).removeClass('active');
-					return false;
-				} else {
-					console.log("Button inactive, opening!");
-					$(".achievementlist").slideUp("500");
-					$("#slider").delay(500).slideDown("500");
-					$(this).addClass('active');
-					return false;
-				}
-			});
-		});
+    script(type='text/javascript').
+        $(document).ready(function (){
+            $("#settings").click(function () {
+                var button = $(this);
+                if ($(this).hasClass('active')){
+                    console.log("Button active, resetting!");
+                    $("#slider").slideUp("500");
+                    $(".achievementlist").delay(500).slideDown("500");
+                    $(this).removeClass('active');
+                    return false;
+                } else {
+                    console.log("Button inactive, opening!");
+                    $(".achievementlist").slideUp("500");
+                    $("#slider").delay(500).slideDown("500");
+                    $(this).addClass('active');
+                    return false;
+                }
+            });
+        });
