@@ -5,11 +5,19 @@ block content
 	if !user
 		.container.leftcolumn
 			h3 Record
-				.container.recordlist 
+				.container.recordlist
+					- var n = 0
+					while n < 20
+						p= n++ + " - win"
 		.container.rightcolumn
+			p.settings 
 			p 
-				a.btn.btn-primary(href="/settings",id="settings") Settings
+				a.btn.btn-primary(href="",id="settings") Settings
 			img(src="http://#{host}", alt='Profile image')
+			.container.achievementlist
+				- var n = 0
+				while n < 15
+					p= n++ + " - combobreaker"
 	else
 		.container
 			h1  Wanna fite m8?
@@ -22,3 +30,6 @@ block content
 					a.small(href="/register") Get 1337.
 
 block scripts
+$("#settings").click(function () {
+$("#test").animate({width: 'toggle'});
+});
