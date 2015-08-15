@@ -30,6 +30,11 @@ block content
 					a.small(href="/register") Get 1337.
 
 block scripts
-$( "btn-primary" ).click(function() {
-$( "#settings" ).slideToggle( "slow" );
+$("#settings" ).click(function(){
+alert("Handler for called")
+});
+$( "#clickme" ).click(function() {
+$( "p.settings" ).slideDown( "slow", function() {
+// Animation complete.
+	});
 });
