@@ -43,6 +43,10 @@ block prescript
 			if (playerPos == turn || (turn == 'start' && playerPos == '2') || turnCounter >= 4) {
 				if (turnCounter >= 4) {
 					$('#battleSubmit input').attr('placeholder', "GG EZY.    Click to go judge SUM1 -->");
+					if (playerPos == 1) {
+						document.getElementById("battleInputs").submit();
+						console.log('form submitted.');
+					}
 				} else {
 					$('#battleSubmit input').attr('placeholder', "It ain't your turn m9.");
 				}
@@ -113,14 +117,17 @@ block content
 			h1 GG, that was intense..
 			img
 		div(id="battleScreen")
-			H1 The argument title will go here, get ready!
+			H1.title "!{title}"
 			div(id="battleContent")
 				ol(id='battleCount')
 					li(data-count='1', class="active") P1
 					li(data-count='2') P2
 					li(data-count='3') P1
 					li(data-count='4') P2
-				form(id="battleInputs")
+				form(id="battleInputs", method='post', role='form')
+					input(type="hidden", name="p1id", value="", id="p1id")
+					input(type="hidden", name="p2id", value="", id="p2id")
+					input(type="hidden", name="title", value="!{title}")
 				ul(id='messages')
 			form(id='battleSubmit')
 				input(id="m", autocomplete="off")
@@ -141,14 +148,18 @@ block scripts
 	script(type='text/javascript', src='/socket.io/socket.io.js')
 	script(type='text/javascript').
 		var socket = io();
-		$('form').submit(function(){
-			socket.emit('message', '!{givenName}', playerPos, $('#m').val());
+		$('form#battleSubmit').submit(function(){
+			socket.emit('message', '!{uid}', playerPos, $('#m').val());
 			$('#m').val('');
 			return false;
 		});
 		socket.on('message', function(from, position, msg){
-			$('#battleInputs').append($('<textarea style= "display: none;" name="p' + position + '" readonly>').text(msg));
+			$('#battleInputs').append($('<textarea style= "display: none;" name="args[]" readonly>').text(msg));
 			propogateTurn(turnCounter, position);
+			if (position != playerPos) {
+					$('#p' + playerPos + 'id').attr('value', '!{uid}');
+					$('#p' + position + 'id').attr('value', from);
+			}
 		});
 		socket.on('status', function(status, position, msg){
 			if(position && !playerPos) {

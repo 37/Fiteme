@@ -24,15 +24,34 @@ var fightResults = forms.create({
   })
 });
 
+// Generate title
+function generateTitle(){
+  var items =   [
+      "Toilet paper should hang over the roll.",
+      "Superman would beat Goku in a bar fight.",
+      "Tony Abbot is actually a great leader.",
+      "Global warming isnt real.",
+      "Jet fuel CAN melt steal memes.",
+      "Doritos and Mountain Dew are important pillars of every good diet.",
+      "We live in a simulation",
+      "Mac is better than PC",
+      "Lil Wayne is a far better rapper than Tupac ever was.",
+      "Arnold Schwarzenegger made an incredible Governor."
+    ]
+  var item = items[Math.floor(Math.random()*items.length)];
+  return item;
+}
+
 // A render function that will render our page and provide the values of the
 // fields, as well as any situation-specific Locals.
 
 function renderForm (req, res, locals){
 
 	res.render('pages/battle', extend({
-		title: 'Fite Me!',
+		title: generateTitle(),
 		csrfToken: req.csrfToken(),
-		givenName: req.user.givenName
+		givenName: req.user.givenName,
+    uid: req.user.email,
 	}, locals || {} ));
 }
 
@@ -51,6 +70,7 @@ module.exports = function loader(){
     // Handle the results of collected and sanitised form fightResults.
     fightResults.handle(req, {
       success: function(form){
+        console.log('processing form!');
         // The form library calls this success method if the form
         // is being POSTED and does not have errors.
 
@@ -69,7 +89,7 @@ module.exports = function loader(){
           var outcome = 'tba';
 
           console.log('\nFight results: \n user1 - ' + p1id + ';\n user2 - ' + p2id + ';\n topic - ' + topic + ';\n args - ' + args + ';\n outcome - ' + tba + '.');
-
+          
           pg.connect(process.env.DATABASE_URL, function(err, client, done) {
             if(err) {
               return console.error('error fetching client from pool', err);
