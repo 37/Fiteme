@@ -6,11 +6,12 @@ block prescript
 		var gameState;
 		var turnCounter = 1;
 
-		function propogateTurn(count){
+		function propogateTurn(count, turn){
 			var counter = document.getElementById('battleCount');
 			var icons = $(counter).children('li');
-			for (i=0; i < (count + 1); i++) {
 
+			// looping for turn indexing icons
+			for (i=0; i < (count + 1); i++) {
 				if (i == count) {
 					$(icons[i]).removeClass();
 					$(icons[i]).addClass('active');
@@ -23,10 +24,42 @@ block prescript
 					$(icons[i]).addClass('complete');
 				}
 			}
+
+			// Call to enable or disable submission interface.
+			enableDisableTurn(turn)
+
+			// Increment turn counter
 			turnCounter++;
 		}
 
+		function enableDisableTurn(turn) {
+			// Freeze interface on off-turn
+			if (playerPos == turn || (turn == 'start' && playerPos == '2') || turnCounter >= 4) {
+				if (turnCounter >= 4) {
+					$('#battleSubmit input').attr('placeholder', "GG EZY.    Click to go judge SUM1 -->");
+				} else {
+					$('#battleSubmit input').attr('placeholder', "It ain't your turn m9.");
+				}
+
+				$('#battleSubmit input').prop('disabled', true);
+				$('#battleSubmit button').prop('disabled', true);
+			} else {
+				$('#battleSubmit input').attr('placeholder', "Time to rek em!");
+				$('#battleSubmit input').prop('disabled', false);
+				$('#battleSubmit button').prop('disabled', false);
+			}
+		}
+
+		function fade_out(element) {
+			$(element).css('color', '#333');
+			$(element).delay(5000).animate({
+				color: 'transparent'
+			}, 5000).delay(800);
+		}
+
 		$(document).ready(function() {
+
+
 			$('#battleCount').on('click', '.complete', function() {
 				if (!$(this).hasClass('open')) {
 					var icon = $(this);
@@ -42,18 +75,25 @@ block prescript
 block content
 
 	if user
-		H1 The argument title will go here, get ready!
-		div(id="battleContent")
-			ol(id='battleCount')
-				li(data-count='1', class="active") P1
-				li(data-count='2') P2
-				li(data-count='3') P1
-				li(data-count='4') P2
-			form(id="battleInputs")
-			ul(id='messages')
-		form(id='battleSubmit')
-			input(id="m", autocomplete="off")
-			button Send
+		div(id="searchingScreen")
+			h1 Searching for an (un)worthy opponent..
+			img
+		div(id="battleScreen")
+			H1 The argument title will go here, get ready!
+			div(id="battleContent")
+				ol(id='battleCount')
+					li(data-count='1', class="active") P1
+					li(data-count='2') P2
+					li(data-count='3') P1
+					li(data-count='4') P2
+				form(id="battleInputs")
+				ul(id='messages')
+			form(id='battleSubmit')
+				input(id="m", autocomplete="off")
+				button Send
+		div(id="postScreen")
+			h1 Searching for an (un)worthy opponent..
+			img
 	else
 		.container
 			h1  Wanna fite m8?
@@ -76,19 +116,20 @@ block scripts
 		});
 		socket.on('message', function(from, position, msg){
 			$('#battleInputs').append($('<textarea style= "display: none;" name="p' + position + '" readonly>').text(msg));
-			propogateTurn(turnCounter);
+			propogateTurn(turnCounter, position);
 		});
 		socket.on('status', function(status, position, msg){
-			if(status) {
-				gameState = status;
-				console.log('gamestate: ' + gameState + '.');
-				if (gameState = 'start'){
-
-				}
-			}
 			if(position && !playerPos) {
 				playerPos = position;
 				console.log('player position: ' + playerPos + '.');
 			}
-			$('#messages').append($('<li>').text(msg));
+			if(status) {
+				gameState = status;
+				console.log('gamestate: ' + gameState + '.');
+				if (gameState = 'start'){
+					enableDisableTurn(gameState);
+				}
+			}
+			$('#messages').text(msg);
+			fade_out('#messages');
 		});

@@ -45,24 +45,115 @@ img.logomain {
 --------------------------------*/
 /* Battle page */
 
+#searchingScreen {
+  height: 448px;
+  width: 100%:
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30
+  background-color: white;
+}
 
-  form#battleSubmit { background: #000; padding: 3px; position: absolute; bottom: 0; width: 600px; }
+#battleScreen {
+  position: relative;
+  z-index: 20;
+}
+#postScreen {
+  height: 448px;
+  width: 100%:
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10
+  background-color: white;
+}
 
-  form input { border: 0; padding: 10px; width: calc(100% - 79px); margin-right: .5%; }
+form#battleSubmit { background: #000; padding: 3px; position: absolute; bottom: 0; width: 600px; }
 
-  form button {
-    width: 75px;
-    background: rgb(231, 34, 34);
-    border: none;
-    padding: 10px;
-    color: white;
-  }
+form input { border: 0; padding: 10px; width: calc(100% - 79px); margin-right: .5%; }
 
-  #messages { list-style-type: none; margin: 0; padding: 0; }
+form button {
+  width: 75px;
+  background: rgb(231, 34, 34);
+  border: none;
+  padding: 10px;
+  color: white;
+}
 
-  #messages li { padding: 5px 10px; }
+#messages { list-style-type: none; margin: 0; padding: 0; }
 
-  #messages li:nth-child(odd) { background: #eee; }
+#messages {
+  float: left;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  padding: 5px 10px;
+}
+
+#battleContent{
+  float: left;
+  background-color: #eee;
+  width: 100%;
+  min-height:
+}
+
+#battleCount {
+  width: 80px;
+  float: left;
+}
+
+#battleCount li {
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  -webkit-border-radius: 20px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius: 20px;
+  -moz-border-radius-topleft: 3px;
+  border-radius: 20px;
+  border-top-left-radius: 3px;
+  line-height: 30px;
+  padding-left:5px;
+  margin-top: 5px;
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    0px 0px 3px 0px rgba(50, 50, 50, 0.25);
+  box-shadow:         0px 0px 3px 0px rgba(50, 50, 50, 0.25);
+}
+
+#battleCount li.complete {
+  border: 3px solid grey;
+}
+
+#battleCount li.active {
+  border: 3px solid gold;
+}
+
+#battleInputs{
+  width: calc(100% - 80px);
+  float: left;
+  padding: 5px 20px 5px 10px;
+}
+
+#battleInputs textarea {
+  width: 100%;
+  padding: 10px;
+  -webkit-border-radius: 20px;
+  -webkit-border-top-left-radius: 3px;
+  -moz-border-radius: 20px;
+  -moz-border-radius-topleft: 3px;
+  border-radius: 20px;
+  border-top-left-radius: 3px;
+  height: 180px;
+  font-size: 13px;
+  outline: none;
+  border: 0;
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow:    0px 0px 3px 0px rgba(50, 50, 50, 0.25);
+  box-shadow:         0px 0px 3px 0px rgba(50, 50, 50, 0.25);
+}
 
 /* Login & registration page */
 
@@ -174,6 +265,7 @@ img.icon.left {
 img.icon.right {
   float: right;
 }
+<<<<<<< HEAD
 
 img.select {
   width: 20%;
@@ -189,3 +281,5 @@ img.select.left {
   margin-left: 3%;
 }
 
+=======
+>>>>>>> 454edb7fbeb60c9e750d82b02b0e66ebca19b395
