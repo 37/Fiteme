@@ -176,8 +176,8 @@ img.profile {
   padding: 20px;
 }
 img.recordimage {
-  width: 40%;
-  height: 40%;
+  width: 60%;
+  height: 60%;
   padding: 20px;
 }
 input.changeuser {
@@ -256,7 +256,7 @@ h4.topic {
 img.icon {
   width: 10%;
   height: 10%;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
   margin-right: 3%;
 }
 img.icon.left {
@@ -266,19 +266,17 @@ img.icon.right {
   float: right;
 }
 
-
 img.select {
-  width: 20%;
-  height: 20%;
+  margin-bottom: 3%;
+  margin-left: 7.5%;
+  width: 30%;
+  height: 30%;
 }
-img.select.right {
-  float: right;
-  margin-right: 3%;
+img.select.playertwo{
+  margin-left: 20%;
+}
 
-}
-img.select.left {
-  float: left;
-  margin-left: 3%;
-}
+
+
 
 
