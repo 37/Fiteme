@@ -253,7 +253,13 @@ div.userOne {
   text-align: left;
   float: left;
   padding-left: 5%;
+
   display: inline-block;
+  background-color: #EEE;
+  overflow: hidden;
+}
+div.userOne p {
+  margin-right: 25%;
 }
 div.userTwo {
   max-width: 600px;
@@ -266,5 +272,25 @@ div.userTwo {
   display: table-row;
   height: 100%;
   max-width: 600px;
+  overflow: hidden;
+}
+.arguments{
+  overflow-y: scroll;
+  height: 500px;
   margin-top: 20px;
+}
+
+
+img.select {
+  width: 20%;
+  height: 20%;
+}
+img.select.right {
+  float: right;
+  margin-right: 3%;
+
+}
+img.select.left {
+  float: left;
+  margin-left: 3%;
 }
