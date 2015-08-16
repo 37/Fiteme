@@ -34,6 +34,12 @@ block prescript
 
 		function enableDisableTurn(turn) {
 			// Freeze interface on off-turn
+
+			//TODO: finish.
+			if(turn == 'start') {
+				$('#searchingScreen').slideUp( "300");
+			}
+
 			if (playerPos == turn || (turn == 'start' && playerPos == '2') || turnCounter >= 4) {
 				if (turnCounter >= 4) {
 					$('#battleSubmit input').attr('placeholder', "GG EZY.    Click to go judge SUM1 -->");
@@ -58,6 +64,30 @@ block prescript
 		}
 
 		$(document).ready(function() {
+			setInterval(function(){
+				switch($('#dotloader').attr('data-value')){
+					case '1':
+						$('#dotloader').text('..');
+						$('#dotloader').attr('data-value', '2');
+						break;
+					case '2':
+						$('#dotloader').text('...');
+						$('#dotloader').attr('data-value', '3');
+						break;
+					case '3':
+						$('#dotloader').text('....');
+						$('#dotloader').attr('data-value', '4');
+						break;
+					case '4':
+						$('#dotloader').text('');
+						$('#dotloader').attr('data-value', '0');
+						break;
+					default:
+						$('#dotloader').text('.');
+						$('#dotloader').attr('data-value', '1');
+						break;
+				}
+			}, 1000);
 
 
 			$('#battleCount').on('click', '.complete', function() {
@@ -76,7 +106,11 @@ block content
 
 	if user
 		div(id="searchingScreen")
-			h1 Searching for an (un)worthy opponent..
+			h1 Searching for a worthy opponent
+				div(id="dotloader", data-value="0")
+			img
+		div(id="postScreen")
+			h1 GG, that was intense..
 			img
 		div(id="battleScreen")
 			H1 The argument title will go here, get ready!
@@ -91,9 +125,7 @@ block content
 			form(id='battleSubmit')
 				input(id="m", autocomplete="off")
 				button Send
-		div(id="postScreen")
-			h1 Searching for an (un)worthy opponent..
-			img
+
 	else
 		.container
 			h1  Wanna fite m8?
