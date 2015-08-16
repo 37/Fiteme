@@ -3,8 +3,9 @@ extends ../partials/skeleton
 block content
 
 	if user
-		p() This is the fight page, gosh - can't wait!
-		a(href="/battle") Click to see battle screen.
+
+		a(href="/battle")
+			h1.(class="letsfight") Fight Me!
 	else
 		.container
 			h1  Wanna fite m8?
